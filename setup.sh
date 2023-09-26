@@ -889,12 +889,13 @@ print_success "All Packet"
 function menu(){
     clear
     print_install "Memasang Menu Packet"
-    wget ${No2vpn}
-    unzip menu2.zip
-    chmod +x menu/*
-    mv menu/* /usr/local/sbin
-    rm -rf menu
-    rm -rf menu.zip
+    clear
+wget -O /tmp/menu-master.zip "${No2vpn}" >/dev/null 2>&1
+    mkdir /tmp/menu
+    7z e  /tmp/menu-master.zip -o/tmp/menu/ >/dev/null 2>&1
+    chmod +x /tmp/menu/*
+    mv /tmp/menu/* /usr/sbin/
+    rm -rf menu-master.zip
 }
 
 # Membaut Default Menu 
